@@ -1,0 +1,31 @@
+[global_config]
+  borderless = True
+  tab_position = left
+[keybindings]
+  go_up = <Alt>k
+  go_down = <Alt>j
+  go_left = <Alt>h
+  go_right = <Alt>l
+  layout_launcher = KP_Subtract
+[profiles]
+  [[default]]
+    icon_bell = False
+    background_color = "#171421"
+    cursor_color = "#aaaaaa"
+    font = RobotoMono Nerd Font Mono 14
+    foreground_color = "#ffffff"
+    show_titlebar = False
+    scrollbar_position = hidden
+    palette = "#ffa800:#c01c28:#ff6d00:#09ff00:#ff3636:#a347ba:#2aa1b3:#ffffff:#ffa800:#f66151:#ff6d00:#09ff00:#ff3636:#ad7fa8:#33c7de:#ff0000"
+    use_system_font = False
+    bold_is_bright = True
+[layouts]
+  [[default]]
+    [[[window0]]]
+      type = Window
+      parent = ""
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+      profile = default
+[plugins]

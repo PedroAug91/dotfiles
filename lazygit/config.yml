@@ -1,0 +1,19 @@
+gui:
+  nerdFontsVersion: "2"
+  filterMode: fuzzy
+  windowSize: half
+  skipDiscardChangeWarning: true
+
+  language: en
+
+  mainPanelSplitMode: horizontal
+
+  theme:
+    selectedLineBgColor:
+      - reverse
+os:
+  editPreset: 'nvim'
+keybinding:
+  universal:
+    return: <C-c>
+

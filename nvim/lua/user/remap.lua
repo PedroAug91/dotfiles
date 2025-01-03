@@ -40,7 +40,7 @@ nmap("<leader>l", ":Lazy home<CR>")
 
 nmap("<leader>md", ":MarkdownPreviewToggle<CR>")
 
-nmap("<leader>cl", ":FloatermToggle<CR>")
+nmap("<leader>ll", ":FloatermToggle<CR>")
 nmap("<leader>cpp", ":FloatermNew --autoclose=0 g++ % -Wall -o %< && %<<CR>")
 nmap("<leader>cc", ":FloatermNew --autoclose=0 gcc % -Wall -o %< && %<<CR>")
 nmap("<leader>cs", ":FloatermNew --autoclose=0 gcc % -Wall -lcs50 -o %< && %<<CR>")

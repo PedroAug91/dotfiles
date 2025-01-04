@@ -15,7 +15,6 @@
     icon_bell = False
     background_color = "#191724"
     background_darkness = 0.85
-    background_type = transparent
     cursor_bg_color = "#9ccfd8"
     font = RobotoMono Nerd Font Mono 11
     foreground_color = "#e0def4"
@@ -57,6 +56,6 @@
       type = Terminal
       parent = child0
       order = 0
-      profile = Rose Pine
+      profile = default
       uuid = fbc4a0af-6153-46fe-8013-20077b46c57f
 [plugins]

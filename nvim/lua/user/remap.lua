@@ -19,7 +19,6 @@ end
 vim.api.nvim_set_keymap('t', '<ESC>', '<C-\\><C-n>', { noremap = true, silent = true})
 
 imap("ii", "<ESC>")
-
 vmap("ii", "<ESC>")
 
 vmap("J", ":m '>+1<CR>gv=gv")
@@ -29,10 +28,11 @@ nmap("<leader><leader>", ":so %<CR>")
 
 nmap("<C-j>", ":tabp<CR>")
 nmap("<C-k>", ":tabn<CR>")
-
 nmap("<C-h>", "<C-w>h")
 nmap("<C-l>", "<C-w>l")
 nmap("<leader>=", "<C-w>=")
+
+vmap("<leader>y", '"+y')
 
 -- Plugin remaps
 

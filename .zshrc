@@ -9,9 +9,6 @@ source $ZSH/oh-my-zsh.sh
 alias luamake="/home/pedro/Github/lua-language-server/3rd/luamake/luamake"
 alias zshconf="nvim ~/.zshrc"
 alias nvimconf="cd ~/.config/nvim"
-alias imoveis="cd ~/Github/imoveis"
-alias rnsus="cd ~/Github/rnsus"
-alias permissoes="cd ~/Github/permissoes"
 alias sail="./vendor/bin/sail"
 alias q="exit"
 
@@ -22,7 +19,6 @@ export NVM_DIR="$HOME/.nvm"
 
 export PATH="$PATH:$HOME/.config/composer/vendor/bin"
 
-setxkbmap -option "caps:swapescape"
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
@@ -74,3 +70,10 @@ function sn() {
     echo "Building app with current url: https://laravel.build/$appname?with=$service_list\n"
     curl -s "https://laravel.build/$appname?with=$service_list" | bash
 }
+
+setxkbmap -option "caps:swapescape"
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
+export DRI_PRIME=1
+. "/home/pedro/.deno/env"

@@ -6,9 +6,8 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
+alias dotconfigs="nvim ~/dotfiles"
 alias luamake="/home/pedro/Github/lua-language-server/3rd/luamake/luamake"
-alias zshconf="nvim ~/.zshrc"
-alias nvimconf="cd ~/.config/nvim"
 alias sail="./vendor/bin/sail"
 alias q="exit"
 

@@ -2,6 +2,7 @@ local set = vim.opt
 local g = vim.g
 
 g.mapleader = " "
+g.have_nerd_font = true
 
 set.nu = true
 set.relativenumber = true
@@ -14,6 +15,7 @@ set.showmode = false
 set.cursorline = true
 set.showtabline = 2
 set.colorcolumn = "80"
+set.signcolumn = "yes"
 
 set.wrap = true
 set.tabstop = 4
@@ -33,3 +35,9 @@ set.incsearch = true
 set.mouse = "a"
 
 set.termguicolors = true
+set.background = "dark"
+
+set.ignorecase = true
+set.smartcase = true
+
+

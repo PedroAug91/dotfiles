@@ -18,3 +18,9 @@ keymap.set('t', "<ESC><ESC>", "<C-\\><C-n>", { desc = "Exit terminal mode"})
 
 keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
+keymap.set('n', "<leader>gpp", ":$tab terminal g++ % -Wall -o %< && %<<CR>", { desc = "[G]nu C [P]lus [P]lus compiler"})
+keymap.set('n', "<leader>gcc", ":$tab terminal gcc % -Wall -o %< && ./%<<CR>", { desc = "[G] [C] [C]ompiler"})
+keymap.set('n', "<C-g>", ":$tab terminal lazygit <CR>", { desc = "Open lazy[G]it" })
+keymap.set('t', "<C-t>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+keymap.set('n', "<leader>nt", ":$tab terminal<CR>", { desc = "[N]ew [T]erminal" })
+keymap.set('n', "<C-t>", ":$tab terminal<CR>", { desc = "Open [T]erminal" })

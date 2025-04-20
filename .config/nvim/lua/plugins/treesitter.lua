@@ -4,27 +4,11 @@ return {
         lazy = false,
         build = ":TSUpdate",
         config = function ()
+            local path = vim.fn.expand("~/.local/share/nvim/parsers")
+            vim.opt.runtimepath:append(path)
+
             local opts = {
-                -- ensure_installed = {
-                --     "c",
-                --     "cpp",
-                --     "python",
-                --     "json5",
-                --     "json",
-                --     "javascript",
-                --     "typescript",
-                --     "lua",
-                --     "luadoc",
-                --     "html",
-                --     "htmldjango",
-                --     "css",
-                --     "dockerfile",
-                --     "yaml",
-                --     "sql",
-                --     "gitignore",
-                --     "bash"
-                -- },
-                parser_install_dir = vim.fn.expand("~/.local/share/nvim/parsers"),
+                parser_install_dir = path,
                 auto_install = false,
                 highlight = {
                     enable = true,

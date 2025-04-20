@@ -51,7 +51,11 @@ return {
         local servers = {
             cssls = {},
             css_variables = {},
-            docker_compose_language_service = {},
+            docker_compose_language_service = {
+                filetypes = {
+                    "yaml", "yaml.docker-compose"
+                }
+            },
             dockerls = {},
             emmet_language_server = {},
             -- jinja_lsp = {},

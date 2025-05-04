@@ -3,7 +3,6 @@ function ColorMyPencils(color)
     vim.cmd.colorscheme(colorScheme)
 end
 
-
 return {
     {
 
@@ -25,29 +24,5 @@ return {
             ColorMyPencils()
         end
     },
-
-    -- {
-    --     "AlexvZyl/nordic.nvim",
-    --     config = function()
-    --         local opts = {
-    --             italic_comments = true,
-    --             transparent = {
-    --                 bg = true,
-    --             }
-    --         }
-    --         require("nordic").setup(opts)
-    --     end
-    -- }
-    -- {
-    --     "olimorris/onedarkpro.nvim",
-    --     name = "onedark",
-    --     config = function ()
-    --         require("onedarkpro").setup({})
-    --
-    --         ColorMyPencils("onedark_dark")
-    --     end,
-    --
-    -- }
-    --
 }
 

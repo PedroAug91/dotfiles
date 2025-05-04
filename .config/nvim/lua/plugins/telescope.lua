@@ -30,6 +30,7 @@ return {
         pcall(require("telescope").load_extension, "ui-select")
 
         local builtin = require("telescope.builtin")
+        vim.keymap.set('n', "<leader>tt", ":Telescope<CR>", { desc = "[T]oggle [T]elescope menu" })
         vim.keymap.set('n', "<leader>ft", builtin.colorscheme, { desc = "[F]ind [T]hemes" })
         vim.keymap.set('n', "<leader>ff", builtin.find_files, { desc = "[F]ind [F]iles" })
         vim.keymap.set('n', "<leader>fs", builtin.live_grep, { desc = "[F]ind [S]tring" })

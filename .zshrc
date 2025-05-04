@@ -70,9 +70,8 @@ function sn() {
     curl -s "https://laravel.build/$appname?with=$service_list" | bash
 }
 
-setxkbmap -option "caps:swapescape"
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init - zsh)"
-export DRI_PRIME=1
-. "/home/pedro/.deno/env"
+# export PYENV_ROOT="$HOME/.pyenv"
+# [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init - zsh)"
+# export DRI_PRIME=1
+# . "/home/pedro/.deno/env"

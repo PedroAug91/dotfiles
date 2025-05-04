@@ -22,7 +22,7 @@ return {
     },
     keys = {
         {
-            "<C-n>",
+            "<C-y>",
             function ()
                 require("tfm").open()
             end

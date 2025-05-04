@@ -42,7 +42,7 @@ return {
         }
         local lg_opts = {
             additional_args = function ()
-                return { "--hidden"}
+                return { "--hidden" }
             end
         }
 

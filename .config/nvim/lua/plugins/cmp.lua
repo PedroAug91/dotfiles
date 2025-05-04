@@ -23,6 +23,12 @@ return {
         local luasnip = require("luasnip")
         luasnip.config.setup({})
 
+        local window_opts = {
+            border = "rounded",
+            max_height = 20,
+            max_width = 80
+        }
+
         cmp.setup({
             snippet = {
                 expand = function(args)
@@ -30,8 +36,8 @@ return {
                 end
             },
             window = {
-                completion = cmp.config.window.bordered(),
-                documentation = cmp.config.window.bordered()
+                completion = window_opts,
+                documentation = window_opts
             },
             preselect = "item",
             completion = {

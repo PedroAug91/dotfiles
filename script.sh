@@ -32,17 +32,17 @@ nvm use node
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-brew install lazygit yazi fzf fd jq neovim
+brew install lazygit yazi fzf fd jq neovim ripgrep 
 
 # Rust, for some reason
 curl https://sh.rustup.rs -sSf | sh
 . "$HOME/.cargo/env"
 
 sudo apt install zsh -y
-chsh -s /bin/zsh
 
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
+chsh -s /bin/zsh

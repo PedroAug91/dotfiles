@@ -1,6 +1,3 @@
-function thesla()
-    return 
-end
 return {
     "nvim-telescope/telescope.nvim",
     event = "VimEnter",

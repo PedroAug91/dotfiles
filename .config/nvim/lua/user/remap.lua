@@ -30,7 +30,7 @@ keymap.set('n', "<C-t><C-v>", ":vertical terminal<CR>", { desc = "New [V]ertical
 keymap.set('n', "<C-n>", ":Oil<CR>", { desc = "Open oil" })
 
 -- keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
-vim.keymap.set("n", "<leader>ld", function()
+vim.keymap.set("n", "<leader>q", function()
   vim.diagnostic.setloclist({ open = false })  -- Populate location list with diagnostics
   require("telescope.builtin").loclist(require("telescope.themes").get_dropdown({
     previewer = true,
@@ -38,4 +38,4 @@ vim.keymap.set("n", "<leader>ld", function()
     width = 0.5,
     winblend = 10,
   }))
-end, { desc = "[L]oad [D]iagnostics Dropdown" })
+end, { desc = "Open diagnostics [Q]uickfix Dropdown" })

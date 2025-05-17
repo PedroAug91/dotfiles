@@ -9,10 +9,14 @@ return {
 
             local opts = {
                 parser_install_dir = path,
-                auto_install = false,
-                highlight = {
-                    enable = true,
+                ensure_installed = {
+                    "javascript", "typescript", "html", "htmldjango",
+                    "c", "cpp", "python", "bash", "gitignore", "yaml",
+                    "dockerfile", "lua", "markdown", "markdown_inline",
+                    "sql", "css",
                 },
+                auto_install = false,
+                highlight = { enable = true, },
                 indent = { enable = true },
                 additional_vim_regex_highlighting = false,
             }

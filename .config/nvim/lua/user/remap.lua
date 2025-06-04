@@ -19,7 +19,7 @@ keymap.set('n', "<C-q>", "<C-w><C-q>", { desc = "Close window" })
 keymap.set('n', "<leader>nt", ":$tabnew<CR>", { desc = "Open new [T]ab" })
 
 -- Terminal related stuff
-keymap.set('n', "<leader>gpp", ":$tab terminal g++ % -Wall -o %< && %<<CR>", { desc = "[G]nu C [P]lus [P]lus compiler"})
+keymap.set('n', "<leader>gpp", ":$tab terminal g++ % -Wall -o %< && ./%<<CR>", { desc = "[G]nu C [P]lus [P]lus compiler"})
 keymap.set('n', "<leader>gcc", ":$tab terminal gcc % -Wall -o %< && ./%<<CR>", { desc = "[G] [C] [C]ompiler"})
 keymap.set('n', "<C-g>", ":$tab terminal lazygit <CR>", { desc = "Open lazy[G]it" })
 keymap.set('n', "<C-t>", ":$tab terminal<CR>", { desc = "New [T]erminal" })
@@ -39,3 +39,5 @@ vim.keymap.set("n", "<leader>q", function()
     winblend = 10,
   }))
 end, { desc = "Open diagnostics [Q]uickfix Dropdown" })
+
+vim.keymap.set('n', "<leader>mtp",":MarkdownPreviewToggle<CR>", { desc = "[M]arkdown [P]review [T]oggle"})

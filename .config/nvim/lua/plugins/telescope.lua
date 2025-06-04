@@ -20,12 +20,13 @@ return {
                 layout_strategy = "vertical",
                 layout_config = {
                     height = 0.99,
-                    width = 0.99
+                    width = 0.99,
                 },
                 file_ignore_patterns = {
                     "node_modules",
                     "%.git/",
-                    "%__pycache__/"
+                    "%__pycache__/",
+                    "vendor",
                 }
             }
         })

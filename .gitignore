@@ -24,3 +24,4 @@ nautilus
 neofetch
 pulse
 .config/terminator/plugins/__pycache__/terminator-themes.cpython-311.pyc
+.config/nvim/mason

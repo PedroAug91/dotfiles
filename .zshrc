@@ -6,7 +6,7 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
-alias dotconfigs="nvim ~/dotfiles"
+alias dotconfigs="cd ~/dotfiles && nvim ."
 alias luamake="/home/pedro/Github/lua-language-server/3rd/luamake/luamake"
 alias sail="./vendor/bin/sail"
 alias q="exit"
@@ -75,3 +75,5 @@ function sn() {
 # eval "$(pyenv init - zsh)"
 # export DRI_PRIME=1
 # . "/home/pedro/.deno/env"
+export PATH="/home/pedro/.config/herd-lite/bin:$PATH"
+export PHP_INI_SCAN_DIR="/home/pedro/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"

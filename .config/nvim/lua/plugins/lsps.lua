@@ -48,6 +48,8 @@ return {
 
         local capabilities = vim.lsp.protocol.make_client_capabilities()
         vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
+        capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
+        -- local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
         local servers = {
             cssls = {},
@@ -58,10 +60,22 @@ return {
                 }
             },
             dockerls = {},
-            emmet_language_server = {},
+            emmet_language_server = {
+                filetypes = {
+                    "html", "htmldjango", "php", "blade"
+                }
+            },
             -- jinja_lsp = {},
-            html = {},
-            -- intelephense = {},
+            html = {
+                filetypes = {
+                    "html", "htmldjango", "php", "blade"
+                }
+            },
+            intelephense = {
+                filetypes = {
+                    "php", "php_only", "blade"
+                }
+            },
             sqlls = {},
             clangd = {},
             pyright = {},

@@ -12,6 +12,7 @@ return {
                 highlight = { enable = true, },
                 indent = { enable = true },
                 additional_vim_regex_highlighting = false,
+
             }
 
             require("nvim-treesitter.configs").setup(opts)
@@ -22,4 +23,13 @@ return {
         event = "InsertEnter",
         opts = {},
     },
+    {
+        "tjdevries/php.nvim",
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter",
+        },
+        config = function ()
+            require("php").setup({})
+        end
+    }
 }

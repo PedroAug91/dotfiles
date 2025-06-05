@@ -21,8 +21,6 @@ sudo groupadd docker
 sudo usermod -aG docker $USER
 newgrp docker
 
-snap install insomnia
-
 # Required for javascript...
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
 nvm install node
@@ -37,6 +35,9 @@ brew install lazygit yazi fzf fd jq neovim ripgrep
 # Rust, for some reason
 curl https://sh.rustup.rs -sSf | sh
 . "$HOME/.cargo/env"
+
+# PHP
+/bin/bash -c "$(curl -fsSL https://php.new/install/linux/8.4)"
 
 sudo apt install zsh -y
 

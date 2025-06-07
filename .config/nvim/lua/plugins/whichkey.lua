@@ -42,7 +42,8 @@ return {
         spec = {
             { "<leader>t", group = "[T]oggle"},
             { "<leader>f", group = "[F]ind"},
-            { "g", group = "[G]oto"}
+            { "g", group = "[G]oto"},
+            { "<leader>h", group = "[H]arpoon"}
         }
     },
     keys = {

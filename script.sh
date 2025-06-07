@@ -1,7 +1,7 @@
 sudo apt update -y 
 sudo apt upgrade -y
 
-sudo apt install git curl build-essential dkms perl wget gcc make terminator ca-certificates xclip stow -y
+sudo apt install git curl build-essential dkms perl wget gcc make ca-certificates xclip stow -y
 
 # Docker stuff =)
 sudo install -m 0755 -d /etc/apt/keyrings

@@ -9,6 +9,8 @@ source $ZSH/oh-my-zsh.sh
 alias dotconfigs="cd ~/dotfiles && nvim ."
 alias luamake="/home/pedro/Github/lua-language-server/3rd/luamake/luamake"
 alias sail="./vendor/bin/sail"
+alias ar="php artisan"
+alias comp="composer"
 alias q="exit"
 
 export NVM_DIR="$HOME/.nvm"

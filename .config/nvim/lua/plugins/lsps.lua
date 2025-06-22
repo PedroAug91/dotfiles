@@ -62,13 +62,23 @@ return {
             dockerls = {},
             emmet_language_server = {
                 filetypes = {
-                    "html", "htmldjango", "php", "blade"
+                    "html",
+                    "htmldjango",
+                    "php",
+                    "blade",
+                    "javascriptreact",
+                    "typescriptreact",
                 }
             },
             -- jinja_lsp = {},
             html = {
                 filetypes = {
-                    "html", "htmldjango", "php", "blade"
+                    "html",
+                    "htmldjango",
+                    "php",
+                    "blade",
+                    "javascriptreact",
+                    "typescriptreact",
                 }
             },
             intelephense = {

@@ -7,11 +7,12 @@ keymap.set('v', "K", ":m '<-2<CR>gv=gv", { noremap = true, silent = true, desc =
 
 keymap.set('v', "<space>y", '"+y', { noremap = true, silent = true, desc = "[Y]ank to clipboard"})
 
-keymap.set('n', "<space><space>", ":so %<CR>", { noremap = true, silent = true, desc = "Reload file"})
+keymap.set('n', "<space><space>", function () vim.lsp.buf.format() end, { noremap = true, silent = true, desc = "Format file"})
 
--- Navigate around tabs
+-- Navigate around tabs and windows
 keymap.set('n', "<C-j>", ":tabp<CR>", { noremap = true, silent = true, desc = "Go to previous tab"})
 keymap.set('n', "<C-k>", ":tabn<CR>", { noremap = true, silent = true, desc = "Go to next tab"})
+
 keymap.set('n', "<C-h>", "<C-w>h", { noremap = true, silent = true, desc = "Go to left window"})
 keymap.set('n', "<C-l>", "<C-w>l", { noremap = true, silent = true, desc = "Go to right window"})
 

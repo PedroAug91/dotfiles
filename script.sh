@@ -1,49 +1,91 @@
-sudo apt update -y 
+#!/bin/bash
+
+set -euo pipefail
+
+echo "[1/10] Updating system..."
+sudo apt update -y
 sudo apt upgrade -y
 
-sudo apt install git curl build-essential dkms perl wget gcc make ca-certificates xclip stow -y
+echo "[2/10] Installing base packages..."
+sudo apt install -y \
+    git curl build-essential dkms perl wget gcc make \
+    ca-certificates xclip stow zsh tmux
 
-# Docker stuff =)
+echo "[3/10] Installing Docker..."
+# Add Docker GPG key
 sudo install -m 0755 -d /etc/apt/keyrings
-sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
-sudo chmod a+r /etc/apt/keyrings/docker.asc
+if [ ! -f /etc/apt/keyrings/docker.asc ]; then
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo tee /etc/apt/keyrings/docker.asc > /dev/null
+    sudo chmod a+r /etc/apt/keyrings/docker.asc
+fi
 
-# Add the repository to Apt sources:
-echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
-  $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}") stable" | \
-  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-sudo apt-get update
-sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+# Add Docker repository
+DOCKER_LIST="/etc/apt/sources.list.d/docker.list"
+if [ ! -f "$DOCKER_LIST" ]; then
+    echo \
+      "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+      $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}") stable" | \
+      sudo tee "$DOCKER_LIST" > /dev/null
+fi
 
-# Use docker without sudo
-sudo groupadd docker
-sudo usermod -aG docker $USER
-newgrp docker
+sudo apt update
+sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
-# Required for javascript...
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
-nvm install node
-nvm use node
+# Allow running docker without sudo
+echo "[4/10] Configuring Docker group..."
+sudo groupadd -f docker
+sudo usermod -aG docker "$USER"
+# Will require re-login for group changes to take effect
 
-# yay, brew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+echo "[5/10] Installing NVM and Node.js..."
+export NVM_DIR="$HOME/.nvm"
+if [ ! -d "$NVM_DIR" ]; then
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+    . "$NVM_DIR/nvm.sh"
+    nvm install node
+    nvm use node
+else
+    echo "NVM already installed."
+    . "$NVM_DIR/nvm.sh"
+fi
 
-brew install lazygit yazi fzf fd jq neovim ripgrep 
+echo "[6/10] Installing Homebrew..."
+if ! command -v brew &>/dev/null; then
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> "$HOME/.zprofile"
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
 
-# Rust, for some reason
-curl https://sh.rustup.rs -sSf | sh
-. "$HOME/.cargo/env"
+echo "[7/10] Installing Brew packages..."
+brew install lazygit yazi fzf fd jq neovim ripgrep
 
-# PHP
+echo "[8/10] Installing Rust..."
+if [ ! -f "$HOME/.cargo/bin/rustc" ]; then
+    curl https://sh.rustup.rs -sSf | sh -s -- -y
+    . "$HOME/.cargo/env"
+else
+    echo "Rust already installed."
+    . "$HOME/.cargo/env"
+fi
+
+echo "[9/10] Installing PHP via php.new..."
 /bin/bash -c "$(curl -fsSL https://php.new/install/linux/8.4)"
 
-sudo apt install zsh -y
+echo "[10/10] Installing ZSH + Oh My Zsh..."
+# Install Oh My Zsh
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+    sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+fi
 
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# Zsh plugins
+ZSH_CUSTOM="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
+git clone https://github.com/zsh-users/zsh-autosuggestions "$ZSH_CUSTOM/plugins/zsh-autosuggestions" 2>/dev/null || echo "zsh-autosuggestions already installed"
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting" 2>/dev/null || echo "zsh-syntax-highlighting already installed"
 
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+# Set default shell to ZSH
+if [ "$SHELL" != "/bin/zsh" ]; then
+    chsh -s /bin/zsh
+fi
 
-chsh -s /bin/zsh
+echo "✅ Setup complete. Please log out and log back in to apply group changes (e.g., Docker group)."
+

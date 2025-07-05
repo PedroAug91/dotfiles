@@ -1,28 +1,34 @@
 return {
     "neovim/nvim-lspconfig",
     dependencies = {
-        { 'williamboman/mason.nvim', opts = {}},
+        { 'williamboman/mason.nvim', opts = {} },
         'williamboman/mason-lspconfig.nvim',
         'WhoIsSethDaniel/mason-tool-installer.nvim',
         'hrsh7th/nvim-cmp',
     },
-    config = function ()
+    config = function()
         vim.api.nvim_create_autocmd("LspAttach", {
             group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
             callback = function(event)
-                vim.keymap.set('n', "gr", require("telescope.builtin").lsp_references, { buffer = event.buf, desc = "[G]oto [R]eferences" })
-                vim.keymap.set('n', "gd", require("telescope.builtin").lsp_definitions, { buffer = event.buf, desc = "[G]oto [D]efinition" })
-                vim.keymap.set('n', "gs", require("telescope.builtin").lsp_document_symbols, { buffer = event.buf, desc = "[G]oto document [S]ymbol" })
-                vim.keymap.set('n', "gw", require("telescope.builtin").lsp_workspace_symbols, { buffer = event.buf, desc = "[G]oto [W]orkspace symbol" })
-                vim.keymap.set('n', "<leader>nn", function() vim.lsp.buf.rename() end, { buffer = event.buf, desc = "[N]ew [N]ame" })
-                vim.keymap.set('n', "<leader>ca", function() vim.lsp.buf.code_action() end, { buffer = event.buf, desc = "[C]ode [A]ction" })
+                vim.keymap.set('n', "gr", require("telescope.builtin").lsp_references,
+                    { buffer = event.buf, desc = "[G]oto [R]eferences" })
+                vim.keymap.set('n', "gd", require("telescope.builtin").lsp_definitions,
+                    { buffer = event.buf, desc = "[G]oto [D]efinition" })
+                vim.keymap.set('n', "gs", require("telescope.builtin").lsp_document_symbols,
+                    { buffer = event.buf, desc = "[G]oto document [S]ymbol" })
+                vim.keymap.set('n', "gw", require("telescope.builtin").lsp_workspace_symbols,
+                    { buffer = event.buf, desc = "[G]oto [W]orkspace symbol" })
+                vim.keymap.set('n', "<leader>nn", function() vim.lsp.buf.rename() end,
+                    { buffer = event.buf, desc = "[N]ew [N]ame" })
+                vim.keymap.set('n', "<leader>ca", function() vim.lsp.buf.code_action() end,
+                    { buffer = event.buf, desc = "[C]ode [A]ction" })
             end
         })
 
 
         vim.diagnostic.config({
             severity_sort = true,
-            float = { border = "rounded", source = "if_many"},
+            float = { border = "rounded", source = "if_many" },
             underline = { severity = vim.diagnostic.severity.ERROR },
             signs = {
                 [vim.diagnostic.severity.ERROR] = '󰅚 ',
@@ -33,7 +39,7 @@ return {
             virtual_text = {
                 source = "if_many",
                 spacing = 2,
-                format = function (diagnostic)
+                format = function(diagnostic)
                     local diagnostic_message = {
                         [vim.diagnostic.severity.ERROR] = diagnostic.message,
                         [vim.diagnostic.severity.WARN] = diagnostic.message,

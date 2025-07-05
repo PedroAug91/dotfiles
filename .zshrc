@@ -7,7 +7,6 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
 alias dotconfigs="cd ~/dotfiles && nvim ."
-alias luamake="/home/pedro/Github/lua-language-server/3rd/luamake/luamake"
 alias sail="./vendor/bin/sail"
 alias ar="php artisan"
 alias comp="composer"
@@ -21,6 +20,13 @@ export PATH="$PATH:$HOME/.config/composer/vendor/bin"
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
+function vim() {
+  local file
+  file=$(fzf) || return
+  nvim "$file"
+}
+
+
 function yy() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
 	yazi "$@" --cwd-file="$tmp"
@@ -32,3 +38,10 @@ function yy() {
 
 export PATH="/home/pedro/.config/herd-lite/bin:$PATH"
 export PHP_INI_SCAN_DIR="/home/pedro/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
+
+if command -v tmux &> /dev/null; then
+  if [ -z "$TMUX" ] && [ -n "$PS1" ]; then
+    tmux attach -t 0 || tmux new -s default
+  fi
+fi
+

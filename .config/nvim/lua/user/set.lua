@@ -39,5 +39,3 @@ set.background = "dark"
 
 set.ignorecase = true
 set.smartcase = true
-
-

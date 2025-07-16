@@ -19,8 +19,8 @@ return {
             defaults = {
                 layout_strategy = "vertical",
                 layout_config = {
-                    -- height = 0.99,
-                    -- width = 0.99,
+                    height = vim.o.lines,
+                    width = vim.o.columns,
                 },
                 file_ignore_patterns = {
                     "node_modules",

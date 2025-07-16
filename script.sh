@@ -71,6 +71,18 @@ fi
 echo "[9/10] Installing PHP via php.new..."
 /bin/bash -c "$(curl -fsSL https://php.new/install/linux/8.4)"
 
+echo "[10/11] Running some exports..."
+
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+export PATH="$PATH:$HOME/.config/composer/vendor/bin"
+
+export PATH="/home/pedro/.config/herd-lite/bin:$PATH"
+export PHP_INI_SCAN_DIR="/home/pedro/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
+
+
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 echo "[10/10] Installing ZSH + Oh My Zsh..."
 # Install Oh My Zsh
 if [ ! -d "$HOME/.oh-my-zsh" ]; then

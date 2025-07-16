@@ -27,7 +27,6 @@ keymap.set('n', "<C-t>", ":$tab terminal<CR>", { desc = "New [T]erminal" })
 keymap.set('t', "<C-t>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 keymap.set('t', "<ESC><ESC>", "<C-\\><C-n>", { desc = "Exit terminal mode"})
 keymap.set('n', "<C-t><C-v>", ":vertical terminal<CR>", { desc = "New [V]ertical [T]erminal" })
-
 keymap.set('n', "<C-n>", ":Oil<CR>", { desc = "Open oil" })
 
 vim.keymap.set("n", "<leader>q", function()
@@ -40,4 +39,4 @@ vim.keymap.set("n", "<leader>q", function()
   }))
 end, { desc = "Open diagnostics [Q]uickfix Dropdown" })
 
-vim.keymap.set('n', "<leader>mtp",":MarkdownPreviewToggle<CR>", { desc = "[M]arkdown [P]review [T]oggle"})
+vim.keymap.set('n', "<leader>tp",":MarkdownPreviewToggle<CR>", { desc = "[T]oggle markdown [P]review "})

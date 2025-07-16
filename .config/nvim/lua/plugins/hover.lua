@@ -5,6 +5,7 @@ return {
             init = function ()
                 require("hover.providers.lsp")
             end,
+            title = true,
             preview_opts = {
                 border = "rounded",
                 max_width = 80,

@@ -25,7 +25,7 @@ return {
 
         local window_opts = {
             border = "rounded",
-            max_height = 20,
+            max_height = 30,
             max_width = 80
         }
 
@@ -52,7 +52,7 @@ return {
                 { name = 'path' },
                 { name = 'nvim_lsp_signature_help' }
             },
-            -- formatting = cmp_format,
+
             mapping = {
                 ["<C-j>"] = cmp.mapping.select_prev_item({ behavior = "select" }),
                 ["<C-k>"] = cmp.mapping.select_next_item({ behavior = "select" }),

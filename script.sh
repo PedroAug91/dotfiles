@@ -71,24 +71,6 @@ fi
 echo "[9/10] Installing PHP via php.new..."
 /bin/bash -c "$(curl -fsSL https://php.new/install/linux/8.4)"
 
-echo "[10/11] Running some exports..."
-
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-export PATH="$PATH:$HOME/.config/composer/vendor/bin"
-
-export PATH="/home/pedro/.config/herd-lite/bin:$PATH"
-export PHP_INI_SCAN_DIR="/home/pedro/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
-
-
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-echo "[10/10] Installing ZSH + Oh My Zsh..."
-# Install Oh My Zsh
-if [ ! -d "$HOME/.oh-my-zsh" ]; then
-    sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-fi
-
 # Zsh plugins
 ZSH_CUSTOM="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
 git clone https://github.com/zsh-users/zsh-autosuggestions "$ZSH_CUSTOM/plugins/zsh-autosuggestions" 2>/dev/null || echo "zsh-autosuggestions already installed"
@@ -99,5 +81,5 @@ if [ "$SHELL" != "/bin/zsh" ]; then
     chsh -s /bin/zsh
 fi
 
-echo "✅ Setup complete. Please log out and log back in to apply group changes (e.g., Docker group)."
+echo "Setup complete"
 

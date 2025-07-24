@@ -54,8 +54,8 @@ return {
             },
 
             mapping = {
-                ["<C-j>"] = cmp.mapping.select_prev_item({ behavior = "select" }),
-                ["<C-k>"] = cmp.mapping.select_next_item({ behavior = "select" }),
+                ["<C-j>"] = cmp.mapping.select_next_item({ behavior = "select" }),
+                ["<C-k>"] = cmp.mapping.select_prev_item({ behavior = "select" }),
                 ["<Tab>"] = cmp.mapping.confirm({ select = true }),
             }
         })

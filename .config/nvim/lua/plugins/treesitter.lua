@@ -3,7 +3,7 @@ return {
         "nvim-treesitter/nvim-treesitter",
         lazy = false,
         build = ":TSUpdate",
-        config = function ()
+        config = function()
             local path = vim.fn.expand("~/.local/share/nvim/parsers")
             vim.opt.runtimepath:append(path)
 
@@ -28,7 +28,7 @@ return {
         dependencies = {
             "nvim-treesitter/nvim-treesitter",
         },
-        config = function ()
+        config = function()
             require("php").setup({})
         end
     }

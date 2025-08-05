@@ -9,7 +9,7 @@ sudo apt upgrade -y
 echo "[2/10] Installing base packages..."
 sudo apt install -y \
     git curl build-essential dkms perl wget gcc make \
-    ca-certificates xclip stow zsh tmux
+    ca-certificates xclip stow zsh tmux nemo
 
 echo "[3/10] Installing Docker..."
 # Add Docker GPG key
@@ -71,10 +71,12 @@ fi
 echo "[9/10] Installing PHP via php.new..."
 /bin/bash -c "$(curl -fsSL https://php.new/install/linux/8.4)"
 
+echo "[10/10] Installing zsh..."
 # Zsh plugins
 ZSH_CUSTOM="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
 git clone https://github.com/zsh-users/zsh-autosuggestions "$ZSH_CUSTOM/plugins/zsh-autosuggestions" 2>/dev/null || echo "zsh-autosuggestions already installed"
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting" 2>/dev/null || echo "zsh-syntax-highlighting already installed"
+git clone https://www.github.com/KulkarniKaustubh/fzf-dir-navigator "$ZSH_CUSTOM/plugins/fzf-dir-navigator" 2>/dev/null || echo "zsh-dir-navigator already installed"
 
 # Set default shell to ZSH
 if [ "$SHELL" != "/bin/zsh" ]; then

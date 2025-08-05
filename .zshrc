@@ -2,22 +2,23 @@ export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="bureau"
 
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting fzf-dir-navigator)
 
 source $ZSH/oh-my-zsh.sh
 
-alias dotconfigs="cd ~/dotfiles && nvim ."
+alias dotconfigs="cd ~/dotfiles && vim"
 alias sail="./vendor/bin/sail"
 alias ar="php artisan"
 alias comp="composer"
 alias q="exit"
 
 export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PATH:$PYENV_ROOT/bin"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
 export PATH="$PATH:$HOME/.config/composer/vendor/bin"
 
-export PATH="/home/pedro/.config/herd-lite/bin:$PATH"
+export PATH="$PATH:/home/pedro/.config/herd-lite/bin"
 export PHP_INI_SCAN_DIR="/home/pedro/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
 
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
@@ -31,15 +32,12 @@ eval "$(pyenv init - bash)"
 function vim() {
     if [[ $1 ]]; then
         nvim $1
-    else
-        local file
-        file=$(fzf --tmux) || return
-        nvim "$file"
+        return
     fi
-}
 
-function fd() {
-    cd "$(find "$HOME" \( -path '*/node_modules' -o -path '*/.git' -o -path '*/venv' \) -prune -o -type d -print | fzf --tmux)"
+    local file
+    file=$(fzf) || return
+    nvim "$file"
 }
 
 function yy() {

@@ -1,14 +1,38 @@
 return {
     "theprimeagen/harpoon",
-    config = function ()
-        vim.keymap.set("n", "<leader>hq", require("harpoon.ui").toggle_quick_menu, { desc = "[H]arpoon [Q]uick[M]enu"})
-        vim.keymap.set("n", "<leader>hm", require("harpoon.mark").add_file, { desc = "[H]arpoon [M]ark" })
-        vim.keymap.set("n", "<leader>hn", require("harpoon.ui").nav_next, { desc = "[H]arpoon [N]ext"})
-        vim.keymap.set("n", "<leader>hp", require("harpoon.ui").nav_prev, { desc = "[H]arpoon [P]revious"})
+    branch = "harpoon2",
+    dependencies = { "nvim-lua/plenary.nvim" },
 
-        require("harpoon").setup({
-            tabline = false
-        })
+    config = function()
+        local harpoon = require("harpoon")
+
+        harpoon:setup()
+
+        local conf = require("telescope.config").values
+        local function toggle_telescope(harpoon_files)
+            local file_paths = {}
+            for _, item in ipairs(harpoon_files.items) do
+                table.insert(file_paths, item.value)
+            end
+
+            require("telescope.pickers").new({}, {
+                prompt_title = "Harpoon",
+                finder = require("telescope.finders").new_table({
+                    results = file_paths,
+                }),
+                previewer = conf.file_previewer({}),
+                sorter = conf.generic_sorter({}),
+            }):find()
+        end
+
+        vim.keymap.set("n", "<C-e>", function() toggle_telescope(harpoon:list()) end,
+            { desc = "Open harpoon window" })
+        vim.keymap.set("n", "<leader>hq", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end,
+            { desc = "[H]arpoon [Q]uick[M]enu" })
+        vim.keymap.set("n", "<leader>hm", function() harpoon:list():add() end, { desc = "[H]arpoon [M]ark" })
+        vim.keymap.set("n", "<leader>hn", function() harpoon:list():next() end, { desc = "[H]arpoon [N]ext" })
+        vim.keymap.set("n", "<leader>hp", function() harpoon:list():prev() end, { desc = "[H]arpoon [P]revious" })
+
     end
 
 }

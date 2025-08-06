@@ -9,6 +9,7 @@ return {
             preview_opts = {
                 border = "rounded",
                 max_width = 80,
+                max_height = 30,
             }
         })
         vim.keymap.set("n", "K", require("hover").hover, {desc = "hover.nvim"})

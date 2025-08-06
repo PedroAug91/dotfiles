@@ -17,7 +17,7 @@ return {
                 }
             },
             defaults = {
-                layout_strategy = "vertical",
+                layout_strategy = "horizontal",
                 layout_config = {
                     height = vim.o.lines,
                     width = vim.o.columns,

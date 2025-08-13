@@ -13,7 +13,7 @@ set.ruler = false
 set.cmdheight = 1
 set.showmode = false
 set.cursorline = true
-set.showtabline = 2
+set.showtabline = 0
 set.colorcolumn = "80"
 set.signcolumn = "yes"
 

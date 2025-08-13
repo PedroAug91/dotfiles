@@ -1,4 +1,5 @@
 require "user.set"
 require "user.remap"
 require "user.autocmds"
+require "user.functions"
 require "lazy_init"

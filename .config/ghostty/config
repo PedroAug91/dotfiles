@@ -3,11 +3,11 @@
 font-family = "RobotoMono Nerd Font Mono"
 font-size = 13.0
 
-theme = "rose-pine"
-
-background-opacity = 1
+theme = "rose-pine-moon"
 background = "#000000"
 foreground = "#e0def4"
+
+background-opacity = 1
 
 cursor-style = "block"
 

@@ -11,7 +11,7 @@ gui:
     selectedLineBgColor:
       - reverse
 os:
-  editPreset: 'nvim'
+  editPreset: "nvim"
 keybinding:
   universal:
     return: <C-c>

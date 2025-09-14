@@ -4,8 +4,8 @@ return {
     dependencies = {
         { "nvim-telescope/telescope-fzf-native.nvim", build = "make", lazy = true },
         { "polirritmico/telescope-lazy-plugins.nvim" },
-        { 'nvim-telescope/telescope-ui-select.nvim' },
-        { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
+        { "nvim-telescope/telescope-ui-select.nvim" },
+        { "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
         { "nvim-lua/plenary.nvim" },
         { "duane9/nvim-rg" }
     },

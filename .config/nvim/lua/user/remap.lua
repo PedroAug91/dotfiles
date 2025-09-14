@@ -1,7 +1,5 @@
 local keymap = vim.keymap
 
-keymap.set({ 'i', 'v' }, "ii", "<ESC>", { noremap = true, silent = true, desc = "[I]n[I]tiate Normal Mode" })
-
 keymap.set('v', "J", ":m '>+1<CR>gv=gv", { noremap = true, silent = true, desc = "Move block to [J] (down)" })
 keymap.set('v', "K", ":m '<-2<CR>gv=gv", { noremap = true, silent = true, desc = "Move block to [K] (up)" })
 

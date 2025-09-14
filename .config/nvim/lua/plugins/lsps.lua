@@ -1,10 +1,10 @@
 return {
     "neovim/nvim-lspconfig",
     dependencies = {
-        { 'williamboman/mason.nvim', opts = {} },
-        'williamboman/mason-lspconfig.nvim',
-        'WhoIsSethDaniel/mason-tool-installer.nvim',
-        -- 'hrsh7th/nvim-cmp',
+        { "williamboman/mason.nvim", opts = {} },
+        "williamboman/mason-lspconfig.nvim",
+        "WhoIsSethDaniel/mason-tool-installer.nvim",
+        "hrsh7th/nvim-cmp",
     },
     config = function()
         vim.api.nvim_create_autocmd("LspAttach", {
@@ -90,7 +90,7 @@ return {
                             checkThirdParty = false,
                         },
                         completion = {
-                            callSnippet = 'Replace',
+                            callSnippet = "Replace",
                         },
                     },
                 },

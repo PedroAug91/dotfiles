@@ -4,24 +4,22 @@ function ColorMyPencils(color)
 end
 
 return {
-    {
-        "rose-pine/neovim",
-        name = "rose-pine",
-        config = function ()
-            local opts = {
-                enable = {
-                    terminal = true
-                },
-                styles = {
-                    bold = true,
-                    italic = true,
-                    transparency = true
-                }
+    "rose-pine/neovim",
+    name = "rose-pine",
+    config = function ()
+        local opts = {
+            enable = {
+                terminal = true
+            },
+            styles = {
+                bold = true,
+                italic = true,
+                transparency = true
             }
+        }
 
-            require("rose-pine").setup(opts)
-            ColorMyPencils()
-        end
-    },
+        require("rose-pine").setup(opts)
+        ColorMyPencils()
+    end
 }
 

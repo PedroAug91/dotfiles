@@ -1,0 +1,67 @@
+-- local servers = {
+--     cssls = {},
+--     css_variables = {},
+--     docker_compose_language_service = {
+--         filetypes = {
+--             "yaml", "yaml.docker-compose"
+--         }
+--     },
+--     dockerls = {},
+--     emmet_language_server = {
+--         filetypes = {
+--             "html",
+--             "htmldjango",
+--             "php",
+--             "blade",
+--             "javascriptreact",
+--             "typescriptreact",
+--         }
+--     },
+--     html = {
+--         filetypes = {
+--             "html",
+--             "htmldjango",
+--             "php",
+--             "blade",
+--             "javascriptreact",
+--             "typescriptreact",
+--         }
+--     },
+--     intelephense = {
+--         filetypes = {
+--             "php", "php_only", "blade"
+--         }
+--     },
+--     sqlls = {},
+--     clangd = {},
+--     csharp_ls = {},
+--     pyright = {},
+--     ts_ls = {},
+--     lua_ls = {
+--         settings = {
+--             Lua = {
+--                 runtime = { version = "LuaJIT" },
+--                 diagnostics = {
+--                     globals = { "vim" },
+--                 },
+--                 workspace = {
+--                     library = {
+--                         [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+--                         [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
+--                     },
+--                     checkThirdParty = false,
+--                 },
+--                 completion = {
+--                     callSnippet = "Replace",
+--                 },
+--             },
+--         },
+--     },
+--     tailwindcss = {},
+-- }
+--- @type vim.lsp.Config
+local opts = {
+}
+local client = "ts_ls"
+vim.lsp.config(client, opts)
+vim.lsp.enable(client)

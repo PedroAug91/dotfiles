@@ -43,6 +43,7 @@ return {
             { "<leader>t", group = "[T]oggle"},
             { "<leader>f", group = "[F]ind"},
             { "g", group = "[G]oto"},
+            { "<leader>g", group = "[G]nu"},
             { "<leader>h", group = "[H]arpoon"}
         }
     },

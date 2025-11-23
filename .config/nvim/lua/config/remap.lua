@@ -1,14 +1,12 @@
 local keymap = vim.keymap
 
-keymap.set('v', "J", ":m '>+1<CR>gv=gv", { noremap = true, silent = true, desc = "Move block to [J] (down)" })
-keymap.set('v', "K", ":m '<-2<CR>gv=gv", { noremap = true, silent = true, desc = "Move block to [K] (up)" })
+keymap.set('v', "J", ":m '>+1<CR>gv=gv", { noremap = true, silent = true, desc = "Move block down [J]" })
+keymap.set('v', "K", ":m '<-2<CR>gv=gv", { noremap = true, silent = true, desc = "Move block up [K]" })
 
 keymap.set('v', "<C-y>", '"+y', { noremap = true, silent = true, desc = "[Y]ank to clipboard" })
 
 keymap.set('n', "<space><space>", function() vim.lsp.buf.format() end, { desc = "Format file" })
 keymap.set('n', "<C-space>", ":e %<CR>", { noremap = true, silent = true, desc = "Reload file" })
-
-keymap.set('n', "<C-t>", function() ToggleTabLine() end, { desc = "[T]oggle tabline" })
 
 -- Navigate around tabs and windows
 keymap.set('n', "<C-j>", ":tabp<CR>", { noremap = true, silent = true, desc = "Go to previous tab" })

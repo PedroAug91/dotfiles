@@ -1,17 +1,6 @@
 return {
     "hrsh7th/nvim-cmp",
     dependencies = {
-        {
-            "L3MON4D3/LuaSnip",
-            build = (function()
-                if vim.fn.has "win32" == 1 or vim.fn.executable "make" == 0 then
-                    return
-                end
-
-                return "make install_jsregexp"
-            end)()
-        },
-        "saadparwaiz1/cmp_luasnip",
         "hrsh7th/cmp-nvim-lsp",
         "hrsh7th/cmp-buffer",
         "hrsh7th/cmp-path",
@@ -20,21 +9,13 @@ return {
     config = function()
         local cmp = require("cmp")
 
-        local luasnip = require("luasnip")
-        luasnip.config.setup({})
-
         local window_opts = {
             border = "rounded",
             max_height = 30,
             max_width = 80
         }
 
-        cmp.setup({
-            snippet = {
-                expand = function(args)
-                    luasnip.lsp_expand(args.body)
-                end
-            },
+        local opts = {
             window = {
                 completion = window_opts,
                 documentation = window_opts
@@ -44,7 +25,7 @@ return {
                 completeopt = "menu,menuone,noinsert"
             },
             sources = {
-                { name = "lazydev",                group_index = 0 },
+                { name = "lazydev", group_index = 0 },
                 { name = "nvim_lsp" },
                 { name = "buffer" },
                 { name = "lazydev", },
@@ -61,7 +42,6 @@ return {
                 format = function(entry, item)
                     local menu_icon = {
                         nvim_lsp = 'λ',
-                        luasnip = '⋗',
                         buffer = 'Ω',
                         path = '🖫',
                     }
@@ -70,6 +50,8 @@ return {
                     return item
                 end,
             }
-        })
+        }
+
+        cmp.setup(opts)
     end
 }

@@ -1,14 +1,14 @@
----@diagnostic disable: undefined-doc-name
 return {
     "stevearc/oil.nvim",
-    ---@module "oil"
-    ---@type oil.SetupOpts
-    opts = {
-        view_options = {
-            show_hidden = true
-        }
-    },
-    -- dependencies = { { "echasnovski/mini.icons", opts = {} } },
-    dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
+    dependencies = { "nvim-tree/nvim-web-devicons" },
     lazy = false,
+    config = function ()
+        local opts = {
+            view_options = {
+                show_hidden = true
+            }
+        }
+
+        require("oil").setup(opts)
+    end
 }

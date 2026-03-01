@@ -15,10 +15,10 @@ keymap.set('n', "<C-h>", "<C-w>h", { noremap = true, silent = true, desc = "Go t
 keymap.set('n', "<C-l>", "<C-w>l", { noremap = true, silent = true, desc = "Go to right window" })
 keymap.set('n', "<C-q>", "<C-w><C-q>", { desc = "Close window" })
 
--- Neovim Terminal related stuff
-keymap.set('n', "<leader>gpp", ":$tab terminal g++ % -Wall -o %< && ./%<<CR>", { desc = "[G]nu C [P]lus [P]lus compiler" })
-keymap.set('n', "<leader>gcc", ":$tab terminal gcc % -Wall -o %< && ./%<<CR>", { desc = "[G] [C] [C]ompiler" })
-keymap.set('t', "<ESC><ESC>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+-- -- Neovim Terminal related stuff
+-- keymap.set('n', "<leader>gpp", ":$tab terminal g++ % -Wall -o %< && ./%<<CR>", { desc = "[G]nu C [P]lus [P]lus compiler" })
+-- keymap.set('n', "<leader>gcc", ":$tab terminal gcc % -Wall -o %< && ./%<<CR>", { desc = "[G] [C] [C]ompiler" })
+-- keymap.set('t', "<ESC><ESC>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
 -- Other stuff idk
 keymap.set("n", "<leader>q", function()

@@ -20,16 +20,6 @@ local plugins = {
     { import = "plugins" }
 }
 
-if vim.g.vscode then
-    vim.list_extend(plugins, {
-        { "nvim-lualine/lualine.nvim", enabled = false },
-        { "nanozuki/tabby.nvim",       enabled = false },
-        { "stevearc/oil.nvim",         enabled = false },
-        { "rose-pine/neovim",          name = "rose-pine",  enabled = false },
-        { "theprimeagen/harpoon",      branch = "harpoon2", enabled = false },
-    })
-end
-
 require("lazy").setup(plugins, {
     change_detection = {
         enabled = true,

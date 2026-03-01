@@ -9,8 +9,8 @@ return {
                 max_height = 30,
             },
             providers = {
-                "hover.providers.diagnostic",
-                "hover.providers.lsp"
+                "hover.providers.lsp",
+                "hover.providers.diagnostic"
             }
         })
         vim.keymap.set("n", "K", require("hover").hover, { desc = "hover.nvim" })

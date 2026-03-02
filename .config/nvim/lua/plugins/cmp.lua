@@ -25,8 +25,8 @@ return {
                 completeopt = "menu,menuone,noinsert"
             },
             sources = {
-                { name = "lazydev", group_index = 0 },
-                { name = "nvim_lsp" },
+                { name = "nvim_lsp", group_index = 0 },
+                { name = "lazydev", group_index = 1 },
                 { name = "buffer" },
                 { name = "lazydev", },
                 { name = "luasnip" },

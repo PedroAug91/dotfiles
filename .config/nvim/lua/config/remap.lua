@@ -13,7 +13,7 @@ keymap.set('n', "<C-j>", ":tabp<CR>", { noremap = true, silent = true, desc = "G
 keymap.set('n', "<C-k>", ":tabn<CR>", { noremap = true, silent = true, desc = "Go to next tab" })
 keymap.set('n', "<C-h>", "<C-w>h", { noremap = true, silent = true, desc = "Go to left window" })
 keymap.set('n', "<C-l>", "<C-w>l", { noremap = true, silent = true, desc = "Go to right window" })
-keymap.set('n', "<C-q>", "<C-w><C-q>", { desc = "Close window" })
+keymap.set('n', "<leader>q", "<C-w><C-q>", { desc = "Close window" })
 
 -- -- Neovim Terminal related stuff
 -- keymap.set('n', "<leader>gpp", ":$tab terminal g++ % -Wall -o %< && ./%<<CR>", { desc = "[G]nu C [P]lus [P]lus compiler" })
@@ -21,7 +21,7 @@ keymap.set('n', "<C-q>", "<C-w><C-q>", { desc = "Close window" })
 -- keymap.set('t', "<ESC><ESC>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
 -- Other stuff idk
-keymap.set("n", "<leader>q", function()
+keymap.set("n", "<C-q>", function()
     vim.diagnostic.setloclist({ open = false }) -- Populate location list with diagnostics
     require("telescope.builtin").loclist(require("telescope.themes").get_dropdown({
         previewer = true,

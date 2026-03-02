@@ -57,7 +57,7 @@ if ! command -v brew &>/dev/null; then
 fi
 
 echo "[7/10] Installing Brew packages..."
-brew install lazygit yazi fzf fd jq neovim ripgrep
+brew install lazygit fzf fd jq neovim ripgrep
 
 echo "[8/10] Installing Rust..."
 if [ ! -f "$HOME/.cargo/bin/rustc" ]; then
